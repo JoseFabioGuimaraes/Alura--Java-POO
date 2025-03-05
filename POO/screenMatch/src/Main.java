@@ -1,4 +1,6 @@
 import br.com.jfabiodev.screenmatch.calculos.CalculadoraDeTempo;
+import br.com.jfabiodev.screenmatch.calculos.FiltroRecomendacao;
+import br.com.jfabiodev.screenmatch.models.Episodio;
 import br.com.jfabiodev.screenmatch.models.Filme;
 import br.com.jfabiodev.screenmatch.models.Serie;
 
@@ -34,6 +36,15 @@ public class Main {
         calculadora.inclui(filme2);
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(filme1);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualicoes(303);
+        filtro.filtra(episodio);
 
 
 
