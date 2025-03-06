@@ -4,6 +4,8 @@ import br.com.jfabiodev.screenmatch.models.Episodio;
 import br.com.jfabiodev.screenmatch.models.Filme;
 import br.com.jfabiodev.screenmatch.models.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Filme filme1 = new Filme();
@@ -46,6 +48,21 @@ public class Main {
         episodio.setTotalVisualicoes(303);
         filtro.filtra(episodio);
 
+        var meuFilme = new Filme();
+        meuFilme.setNome("Todo mundo em panico");
+        meuFilme.setAnoLancamento(2000);
+        meuFilme.setDuracaoMinutos(88);
+        meuFilme.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filme1);
+        listaDeFilmes.add(filme2);
+        listaDeFilmes.add(meuFilme);
+
+        System.out.println("Quantidade na lista: "+ listaDeFilmes.size());
+        System.out.println("Primeiro filme " + listaDeFilmes.get(0).getNome());
+        System.out.println(listaDeFilmes);
+        System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
 
 
     }
