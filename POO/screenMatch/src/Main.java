@@ -8,13 +8,11 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Filme filme1 = new Filme();
-        filme1.setNome("Top gun");
+        Filme filme1 = new Filme("Top gun");
         filme1.setAnoLancamento(1986);
         filme1.setDuracaoMinutos(180);
 
-        Filme filme2 = new Filme();
-        filme2.setNome("Interestelar");
+        Filme filme2 = new Filme("Interestelar");
         filme2.setAnoLancamento(2014);
         filme2.setDuracaoMinutos(120);
 
@@ -48,8 +46,7 @@ public class Main {
         episodio.setTotalVisualicoes(303);
         filtro.filtra(episodio);
 
-        var meuFilme = new Filme();
-        meuFilme.setNome("Todo mundo em panico");
+        var meuFilme = new Filme("Todo mundo em panico");
         meuFilme.setAnoLancamento(2000);
         meuFilme.setDuracaoMinutos(88);
         meuFilme.avalia(10);
