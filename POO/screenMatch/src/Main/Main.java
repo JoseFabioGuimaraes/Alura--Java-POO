@@ -1,3 +1,5 @@
+package Main;
+
 import br.com.jfabiodev.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.jfabiodev.screenmatch.calculos.FiltroRecomendacao;
 import br.com.jfabiodev.screenmatch.models.Episodio;
