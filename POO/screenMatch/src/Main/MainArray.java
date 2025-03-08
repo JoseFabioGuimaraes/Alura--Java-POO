@@ -5,6 +5,8 @@ import br.com.jfabiodev.screenmatch.models.Serie;
 import br.com.jfabiodev.screenmatch.models.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainArray {
     public static void main(String[] args) {
@@ -33,13 +35,19 @@ public class MainArray {
             System.out.println(titulo.getNome());
             if (titulo instanceof Filme filme){
                 System.out.println("Classificação: " + filme.getClassificacao());
-            } else {
-
             }
-
-
         }
 
+        ArrayList<String> artistasList = new ArrayList<>();
+        artistasList.add("Adam Sandler");
+        artistasList.add("Manu Gavassi");
+        artistasList.add("Gabriel Jesus");
+        System.out.println(artistasList);
 
+        Collections.sort(artistasList);
+        System.out.println("Depois de ordenado: " + artistasList);
+        System.out.println(lista);
+        Collections.sort(lista);
+        System.out.println("Lista ordenada: "+ lista);
     }
 }

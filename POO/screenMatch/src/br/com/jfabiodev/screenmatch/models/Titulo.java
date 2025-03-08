@@ -1,6 +1,6 @@
 package br.com.jfabiodev.screenmatch.models;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
 
     private String nome;
     private int anoLancamento;
@@ -62,6 +62,11 @@ public class Titulo {
 
     public double pegaMedia(){
         return somaAvaliacoes / totalAvaliacoes;
+    }
+
+    @Override
+    public int compareTo(Titulo segundoTitulo) {
+        return this.getNome().compareTo(segundoTitulo.getNome());
     }
 }
 
