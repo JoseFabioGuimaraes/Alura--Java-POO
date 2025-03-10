@@ -4,9 +4,7 @@ import br.com.jfabiodev.screenmatch.models.Filme;
 import br.com.jfabiodev.screenmatch.models.Serie;
 import br.com.jfabiodev.screenmatch.models.Titulo;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+import java.util.*;
 
 public class MainArray {
     public static void main(String[] args) {
@@ -25,7 +23,7 @@ public class MainArray {
 
         Filme f1 = meuFilme;
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filme1);
         lista.add(filme2);
         lista.add(meuFilme);
