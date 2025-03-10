@@ -5,8 +5,8 @@ import br.com.jfabiodev.screenmatch.models.Serie;
 import br.com.jfabiodev.screenmatch.models.Titulo;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class MainArray {
     public static void main(String[] args) {
@@ -49,5 +49,8 @@ public class MainArray {
         System.out.println(lista);
         Collections.sort(lista);
         System.out.println("Lista ordenada: "+ lista);
+
+        lista.sort(Comparator.comparing(Titulo::getAnoLancamento));
+        System.out.println(lista);
     }
 }
