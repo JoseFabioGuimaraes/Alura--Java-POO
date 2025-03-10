@@ -1,4 +1,4 @@
-package br.com.jfabiodev.screenmatch.Desafio.Modelos;
+package br.com.jfabiodev.screenmatch.Desafio.POO.Modelos;
 
 public class Musica extends Audio{
     private String album;

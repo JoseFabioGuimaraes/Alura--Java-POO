@@ -1,4 +1,4 @@
-package br.com.jfabiodev.screenmatch.Desafio.Modelos;
+package br.com.jfabiodev.screenmatch.Desafio.POO.Modelos;
 
 public class Podcast extends Audio{
     private String apresentador;

@@ -1,8 +1,8 @@
-package br.com.jfabiodev.screenmatch.Desafio.principal;
+package br.com.jfabiodev.screenmatch.Desafio.POO.principal;
 
-import br.com.jfabiodev.screenmatch.Desafio.Modelos.MinhaPreferida;
-import br.com.jfabiodev.screenmatch.Desafio.Modelos.Musica;
-import br.com.jfabiodev.screenmatch.Desafio.Modelos.Podcast;
+import br.com.jfabiodev.screenmatch.Desafio.POO.Modelos.MinhaPreferida;
+import br.com.jfabiodev.screenmatch.Desafio.POO.Modelos.Musica;
+import br.com.jfabiodev.screenmatch.Desafio.POO.Modelos.Podcast;
 
 public class Main {
     public static void main(String[] args) {
