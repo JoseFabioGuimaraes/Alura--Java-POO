@@ -1,28 +1,24 @@
 package br.com.jfabiodev.screenmatch.Desafio.Lista.Modelos;
 
-public class Carrinho {
+public class Compra {
     private String nome;
     private double preco;
 
-    public Carrinho(String nome, double preco) {
-        this.nome = nome;
+    public Compra(String nome, double preco) {
         this.preco = preco;
+        this.nome = nome;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public double getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    @Override
+    public String toString() {
+        return "Compra: Nome do produto: " + nome + "\n Valor do produto: " + preco ;
     }
-
 }
