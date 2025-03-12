@@ -2,7 +2,10 @@ package Main;
 
 
 import br.com.jfabiodev.screenmatch.models.Titulo;
+import br.com.jfabiodev.screenmatch.models.TituloOMMDB;
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.net.URI;
@@ -27,8 +30,14 @@ public class MainBusca {
         var json = response.body();
         System.out.println(json);
 
-        Gson gson = new Gson();
-        Titulo meuTitulo = gson.fromJson(json, Titulo.class);
-        System.out.println(meuTitulo);
+        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+
+        TituloOMMDB meuTituloOMBD = gson.fromJson(json,TituloOMMDB.class);
+        System.out.println(meuTituloOMBD);
+        Titulo meuTitulo = new Titulo(meuTituloOMBD);
+
+
+        System.out.println("\n" + meuTitulo + " Duração: " + meuTitulo.getDuracaoMinutos());
+
     }
 }
