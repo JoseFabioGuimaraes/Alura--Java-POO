@@ -12,9 +12,9 @@ public class TheMealDBAPI {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Digite o receita que deseja pesquisar: ");
-        String receita = scanner.next();
+        var receita = scanner.next();
 
-        String link = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + receita;
+        var link = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + receita;
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create(link))
                 .build();

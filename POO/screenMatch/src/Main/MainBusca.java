@@ -1,5 +1,9 @@
 package Main;
 
+
+import br.com.jfabiodev.screenmatch.models.Titulo;
+import com.google.gson.Gson;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -11,8 +15,8 @@ public class MainBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual filme você deseja pesquisar?");
-        String filme = scanner.next();
-        String busca = "https://www.omdbapi.com/?t="+filme+"&apikey=f9173cff";
+        var filme = scanner.next();
+        var busca = "https://www.omdbapi.com/?t="+filme+"&apikey=f9173cff";
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
@@ -20,6 +24,11 @@ public class MainBusca {
                 .build();
         HttpResponse<String> response = client
                 .send(request,HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        var json = response.body();
+        System.out.println(json);
+
+        Gson gson = new Gson();
+        Titulo meuTitulo = gson.fromJson(json, Titulo.class);
+        System.out.println(meuTitulo);
     }
 }

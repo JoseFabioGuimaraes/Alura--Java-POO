@@ -1,8 +1,12 @@
 package br.com.jfabiodev.screenmatch.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo> {
 
+    @SerializedName("Title")
     private String nome;
+    @SerializedName("Year")
     private int anoLancamento;
     private boolean incluidoPlano;
     private double somaAvaliacoes;
@@ -62,6 +66,11 @@ public class Titulo implements Comparable<Titulo> {
 
     public double pegaMedia(){
         return somaAvaliacoes / totalAvaliacoes;
+    }
+
+    @Override
+    public String toString() {
+        return "nome= " + nome + ", ano de Lancamento=" + anoLancamento;
     }
 
     @Override
