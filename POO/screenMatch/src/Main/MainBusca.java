@@ -21,25 +21,29 @@ public class MainBusca {
         var filme = scanner.next();
         var busca = "https://www.omdbapi.com/?t="+filme+"&apikey=f9173cff";
 
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(busca))
-                .build();
-        HttpResponse<String> response = client
-                .send(request,HttpResponse.BodyHandlers.ofString());
-        var json = response.body();
-        System.out.println(json);
+        try{
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(busca))
+                    .build();
+            HttpResponse<String> response = client
+                    .send(request,HttpResponse.BodyHandlers.ofString());
+            var json = response.body();
+            System.out.println(json);
 
-        Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
+            Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE).create();
 
-        TituloOMMDB meuTituloOMBD = gson.fromJson(json,TituloOMMDB.class);
-        System.out.println(meuTituloOMBD);
-        try {
+            TituloOMMDB meuTituloOMBD = gson.fromJson(json,TituloOMMDB.class);
+            System.out.println(meuTituloOMBD);
+            // try {
             Titulo meuTitulo = new Titulo(meuTituloOMBD);
             System.out.println("\n" + meuTitulo + " Duração: " + meuTitulo.getDuracaoMinutos());
         }catch (NumberFormatException e){
             System.out.println("Aconteceu um erro");
             System.out.println(e.getMessage());
+        } catch (IllegalArgumentException e){
+            System.out.println("Argumento invalido: ");
+            System.out.println("Error: " + e);
         }
     }
 }
