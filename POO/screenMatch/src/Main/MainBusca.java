@@ -1,6 +1,7 @@
 package Main;
 
 
+import br.com.jfabiodev.screenmatch.exececao.ErrorDeConversaoDeAnoException;
 import br.com.jfabiodev.screenmatch.models.Titulo;
 import br.com.jfabiodev.screenmatch.models.TituloOMMDB;
 import com.google.gson.FieldNamingPolicy;
@@ -18,9 +19,9 @@ public class MainBusca {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Qual filme você deseja pesquisar?");
-        var filme = scanner.next();
-        var busca = "https://www.omdbapi.com/?t="+filme+"&apikey=f9173cff";
-
+        var filme = scanner.nextLine();
+        var busca = "https://www.omdbapi.com/?t="+filme.replace(" ","+")+"&apikey=f9173cff";
+        System.out.println(busca);
         try{
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
@@ -38,12 +39,14 @@ public class MainBusca {
             // try {
             Titulo meuTitulo = new Titulo(meuTituloOMBD);
             System.out.println("\n" + meuTitulo + " Duração: " + meuTitulo.getDuracaoMinutos());
-        }catch (NumberFormatException e){
+        }   catch (NumberFormatException e){
             System.out.println("Aconteceu um erro");
             System.out.println(e.getMessage());
         } catch (IllegalArgumentException e){
             System.out.println("Argumento invalido: ");
             System.out.println("Error: " + e);
+        } catch (ErrorDeConversaoDeAnoException e){
+            System.out.println("error: " + e.getMensagem());
         }
     }
 }
