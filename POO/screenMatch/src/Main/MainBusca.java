@@ -34,10 +34,12 @@ public class MainBusca {
 
         TituloOMMDB meuTituloOMBD = gson.fromJson(json,TituloOMMDB.class);
         System.out.println(meuTituloOMBD);
-        Titulo meuTitulo = new Titulo(meuTituloOMBD);
-
-
-        System.out.println("\n" + meuTitulo + " Duração: " + meuTitulo.getDuracaoMinutos());
-
+        try {
+            Titulo meuTitulo = new Titulo(meuTituloOMBD);
+            System.out.println("\n" + meuTitulo + " Duração: " + meuTitulo.getDuracaoMinutos());
+        }catch (NumberFormatException e){
+            System.out.println("Aconteceu um erro");
+            System.out.println(e.getMessage());
+        }
     }
 }
